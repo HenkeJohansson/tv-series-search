@@ -8,6 +8,6 @@ const Home = () => {
       <Search />
     </div>
   );
-}
+};
 
-export default Home
+export default Home;
