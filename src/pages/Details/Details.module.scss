@@ -1,0 +1,20 @@
+.showDetails {
+  display: flex;
+  flex-direction: row-reverse;
+
+  img {
+    align-self: flex-start;
+    margin-left: 2rem;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .showDetails {
+    flex-direction: row;
+
+    img {
+      margin-left: 0;
+      margin-right: 2rem;
+    }
+  }
+}

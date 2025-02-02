@@ -1,4 +1,5 @@
 import { TShowDetails } from "../../../../types";
+import Rating from "../Rating/Rating";
 import Styles from "./ShowInfo.module.scss";
 
 type TShowInfo = {
@@ -10,7 +11,7 @@ const renderGenres = (genres: string[]) => genres.length > 0 ? genres.join(' | '
 const ShowInfo = ({ showDetails }: TShowInfo) => (
   <div className={Styles.showInfoContainer}>
     <h2>{showDetails.name}</h2>
-    <span>{`${showDetails.rating}`}</span>
+    <Rating rating={showDetails.rating.average} />
     <p>Genres: {renderGenres(showDetails.genres)}</p>
     <div dangerouslySetInnerHTML={{ __html: showDetails.summary }} />
   </div>

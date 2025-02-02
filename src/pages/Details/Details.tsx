@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
 import { BreadCrumbs } from "../../components";
 import ShowInfo from "./components/ShowInfo/ShowInfo";
+import Styles from "./Details.module.scss";
 
 const fetchDetailsById = async (id: string) => {
   const { data } = await axios.get(`https://api.tvmaze.com/shows/${id}`);
@@ -30,7 +31,10 @@ const Details = () => {
       <BreadCrumbs backLink="/" />
       <h1>Details: {id}</h1>
       {data && (
-        <ShowInfo showDetails={data} />
+        <div className={Styles.showDetails}>
+          <img src={data.image.medium} alt={`${data.name} poster`} />
+          <ShowInfo showDetails={data} />
+        </div>
       )}
     </div>
   );
