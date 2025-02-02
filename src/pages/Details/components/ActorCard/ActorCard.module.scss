@@ -1,0 +1,12 @@
+.actorCard {
+  display: flex;
+  color: white;
+
+  img {
+    max-height: 100px;
+  }
+
+  .actorInfo {
+    margin-left: 20px;
+  }
+}

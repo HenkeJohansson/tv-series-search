@@ -1,43 +1,61 @@
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import { useQuery } from "@tanstack/react-query";
+import { useQueries } from "@tanstack/react-query";
 import { useEffect } from "react";
 import { BreadCrumbs } from "../../components";
 import ShowInfo from "./components/ShowInfo/ShowInfo";
 import Styles from "./Details.module.scss";
+import Cast from "./components/Cast/Cast";
 
 const fetchDetailsById = async (id: string) => {
   const { data } = await axios.get(`https://api.tvmaze.com/shows/${id}`);
   return data;
 };
 
+const fetchCastById = async (id: string) => {
+  const { data } = await axios.get(`https://api.tvmaze.com/shows/${id}/cast`);
+  return data;
+};
+
 const Details = () => {
   const { id } = useParams<{ id: string }>();
-  const { data, error, isLoading } = useQuery({
-    queryKey: ['details', id],
-    queryFn: () => (id ? fetchDetailsById(id) : Promise.reject('id not provided')),
-    enabled: !!id,
-    staleTime: (1000 * 60 * 5),
+  const results = useQueries({
+    queries: [
+      {
+        queryKey: ['details', id],
+        queryFn: () => (id ? fetchDetailsById(id) : Promise.reject('id not provided')),
+        enabled: !!id,
+        staleTime: 1000 * 60 * 5,
+      },
+      {
+        queryKey: ['cast', id],
+        queryFn: () => (id ? fetchCastById(id) : Promise.reject('id not provided')),
+        enabled: !!id,
+        staleTime: 1000 * 60 * 5,
+      }
+    ],
   });
+  const detailsData = results[0].data ?? null;
+  const castData = results[1].data ?? [];
 
   useEffect(() => {
-    console.log('Details - useEffect', { data });
-  }, [data]);
+    console.log('Details - useEffect', { detailsData }, { castData });
+  }, [detailsData, castData]);
 
   const navigate = useNavigate();
   // <button onClick={() => navigate("/details/{id}")}>Details</button>
   return (
     <div>
       <BreadCrumbs backLink="/" />
-      <h1>Details: {id}</h1>
-      {data && (
+      {detailsData && (
         <div className={Styles.showDetails}>
-          <img src={data.image.medium} alt={`${data.name} poster`} />
-          <ShowInfo showDetails={data} />
+          <img src={detailsData.image.medium} alt={`${detailsData.name} poster`} />
+          <ShowInfo showDetails={detailsData} />
         </div>
       )}
+      <Cast castData={castData} />
     </div>
   );
 }
 
-export default Details
+export default Details;
