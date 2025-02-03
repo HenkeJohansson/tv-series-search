@@ -1,6 +1,5 @@
-import tvmLogo from '../../assets/images/tvm-header-logo.png'
-import { Search } from '../../common/components';
-import Results from './components/Results/Results';
+
+import Results from "./components/Results/Results";
 
 const Home = () => {
 

@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import Styles from './Search.module.scss';
-import { useQueryClient } from '@tanstack/react-query';
+import { useState } from "react";
+import Styles from "./Search.module.scss";
+import { useQueryClient } from "@tanstack/react-query";
 
 const Search = () => {
   const queryClient = useQueryClient();
@@ -18,7 +18,7 @@ const Search = () => {
         type="text"
         value={searchPhrase}
         onChange={(e) => setSearchPhrase(e.target.value)}
-        placeholder='Search for TV shows'
+        placeholder="Search for TV shows"
       />
       <button onClick={handleSearch}>
         Search

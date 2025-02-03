@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useQueries } from "@tanstack/react-query";
-import { useEffect } from "react";
 import { BreadCrumbs } from "../../common/components";
 import ShowInfo from "./components/ShowInfo/ShowInfo";
 import Styles from "./Details.module.scss";
@@ -37,10 +36,6 @@ const Details = () => {
   });
   const detailsData = results[0].data ?? null;
   const castData = results[1].data ?? [];
-
-  useEffect(() => {
-    console.log('Details - useEffect', { detailsData }, { castData });
-  }, [detailsData, castData]);
 
   return (
     <div>

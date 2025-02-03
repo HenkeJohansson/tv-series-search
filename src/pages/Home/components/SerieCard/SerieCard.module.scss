@@ -1,0 +1,14 @@
+.serieCard {
+  cursor: pointer;
+  max-width: 45vw;
+  
+  img {
+    max-width: 100%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .serieCard {
+    max-width: 20vw;
+  }
+}

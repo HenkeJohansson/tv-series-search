@@ -1,50 +1,37 @@
-# React + TypeScript + Vite
+# TV Show search
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Start:
 
-Currently, two official plugins are available:
+- `npm install`
+- `npm run dev`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## What to do next
 
-## Expanding the ESLint configuration
+(I kind of want to replace the api with TMDB API and create an watchlist app with this)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+#### Home page
 
-- Configure the top-level `parserOptions` property like this:
+I did not have the time to create the initial state for the startpage.  
+I'm also not sure yet if I would style the `<Navbar />` to expand down (probably) or reuse the `<Search />` component and use a condition to either show the Navbar or the second Search component further down.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+#### Rating component
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+This rating component only supprorts full and half steps in the rating scale. So to visually show a rating of 7.9 I have to come up with a different solution. I realized to late that there where finer steps to the rating scale.  
+Maybe css mask could be used, I did not have time to look in to that.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+#### Quality of life improvements
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+Other improvements that would be good:
+
+- I was planning on use the original sizes of the image for the posters when on desktop resolution (but ran out of time)
+- Bigger images in the layout when in higher resolution, so images get more space compared to the text
+- Search as the user types (+ debouncing)
+- Or search on Enter
+- If I would run the search as the user typed, I would display the result in a dropdown from the search field, and clicking on one of the result would take the user to the details page, hitting Enter would display the result on the home page as it does now.
+- In Details view display images from the show (A backdrop image at the top of the page)
+- A page for the actors would fit well here
+
+### Types
+
+I put the types directly in the components, bacause it felt like it was to few types.  
+If there where more types I would put them in a separate types file in the page directory.
