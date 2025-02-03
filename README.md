@@ -30,6 +30,7 @@ Other improvements that would be good:
 - If I would run the search as the user typed, I would display the result in a dropdown from the search field, and clicking on one of the result would take the user to the details page, hitting Enter would display the result on the home page as it does now.
 - In Details view display images from the show (A backdrop image at the top of the page)
 - A page for the actors would fit well here
+- Oh and loading indicators when fetching data!
 
 ### Types
 
