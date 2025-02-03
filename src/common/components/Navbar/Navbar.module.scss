@@ -1,0 +1,16 @@
+.navbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  img {
+    align-self: center;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}

@@ -1,8 +1,8 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useQueries } from "@tanstack/react-query";
 import { useEffect } from "react";
-import { BreadCrumbs } from "../../components";
+import { BreadCrumbs } from "../../common/components";
 import ShowInfo from "./components/ShowInfo/ShowInfo";
 import Styles from "./Details.module.scss";
 import Cast from "./components/Cast/Cast";
@@ -42,8 +42,6 @@ const Details = () => {
     console.log('Details - useEffect', { detailsData }, { castData });
   }, [detailsData, castData]);
 
-  const navigate = useNavigate();
-  // <button onClick={() => navigate("/details/{id}")}>Details</button>
   return (
     <div>
       <BreadCrumbs backLink="/" />

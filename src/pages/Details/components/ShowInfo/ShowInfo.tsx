@@ -1,5 +1,5 @@
-import { TShowDetails } from "../../../../types";
-import Rating from "../Rating/Rating";
+import { Rating } from "../../../../common/components";
+import { TShowDetails } from "../../../../common/types";
 import Styles from "./ShowInfo.module.scss";
 
 type TShowInfo = {
