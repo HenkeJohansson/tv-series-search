@@ -1,4 +1,4 @@
-import tvmLogo from "../../../assets/images/tvm-header-logo.png"
+import tvmLogo from "../../../assets/images/tvm-header-logo.png";
 import Search from "../Search/Search";
 import Styles from "./Navbar.module.scss";
 
@@ -8,7 +8,7 @@ const Navbar = () => {
       <img src={tvmLogo} alt="TVM logo" />
       <Search />
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

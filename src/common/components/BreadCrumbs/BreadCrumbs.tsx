@@ -4,8 +4,8 @@ import Styles from "./BreadCrumbs.module.scss";
 import { Link } from "react-router-dom";
 
 type TBreadCrumbs = {
-  backLink: string
-}
+  backLink: string;
+};
 
 const BreadCrumbs = ({ backLink }: TBreadCrumbs) => {
   return (
@@ -15,7 +15,7 @@ const BreadCrumbs = ({ backLink }: TBreadCrumbs) => {
         <p>Back to search results</p>
       </div>
     </Link>
-  )
+  );
 };
 
 export default BreadCrumbs;

@@ -1,25 +1,24 @@
-
 export type TShow = {
-  id: number,
+  id: number;
   image: {
-    medium: string,
-  },
-  name: string,
+    medium: string;
+  };
+  name: string;
   rating: {
-    average: number,
-  },
+    average: number;
+  };
 };
 
 export type TShowDetails = {
-  id: number,
+  id: number;
   image: {
-    medium: string,
-    original: string,
-  },
-  name: string,
-  genres: string[],
+    medium: string;
+    original: string;
+  };
+  name: string;
+  genres: string[];
   rating: {
-    average: number,
-  },
-  summary: string
+    average: number;
+  };
+  summary: string;
 };

@@ -3,10 +3,10 @@ import { TShowDetails } from "../../../../common/types";
 import Styles from "./ShowInfo.module.scss";
 
 type TShowInfo = {
-  showDetails: TShowDetails
+  showDetails: TShowDetails;
 };
 
-const renderGenres = (genres: string[]) => genres.length > 0 ? genres.join(' | ') : '';
+const renderGenres = (genres: string[]) => (genres.length > 0 ? genres.join(" | ") : "");
 
 const ShowInfo = ({ showDetails }: TShowInfo) => (
   <div className={Styles.showInfoContainer}>

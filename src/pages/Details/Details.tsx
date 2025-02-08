@@ -21,17 +21,17 @@ const Details = () => {
   const results = useQueries({
     queries: [
       {
-        queryKey: ['details', id],
-        queryFn: () => (id ? fetchDetailsById(id) : Promise.reject('id not provided')),
+        queryKey: ["details", id],
+        queryFn: () => (id ? fetchDetailsById(id) : Promise.reject("id not provided")),
         enabled: !!id,
         staleTime: 1000 * 60 * 5,
       },
       {
-        queryKey: ['cast', id],
-        queryFn: () => (id ? fetchCastById(id) : Promise.reject('id not provided')),
+        queryKey: ["cast", id],
+        queryFn: () => (id ? fetchCastById(id) : Promise.reject("id not provided")),
         enabled: !!id,
         staleTime: 1000 * 60 * 5,
-      }
+      },
     ],
   });
   const detailsData = results[0].data ?? null;
@@ -49,6 +49,6 @@ const Details = () => {
       <Cast castData={castData} />
     </div>
   );
-}
+};
 
 export default Details;

@@ -3,15 +3,15 @@ import Styles from "./ActorCard.module.scss";
 type TCastCard = {
   actorInfo: {
     character: {
-      name: string
-    },
+      name: string;
+    };
     person: {
-      name: string,
+      name: string;
       image: {
-        medium: string
-      }
-    }
-  }
+        medium: string;
+      };
+    };
+  };
 };
 
 const ActorCard = ({ actorInfo }: TCastCard) => {
@@ -20,12 +20,10 @@ const ActorCard = ({ actorInfo }: TCastCard) => {
       <img src={actorInfo.person.image.medium} alt={actorInfo.person.name} />
       <div className={Styles.actorInfo}>
         <h4 className={Styles.realName}>{actorInfo.person.name}</h4>
-        <h5 className={Styles.characterName}>
-          {`as ${actorInfo.character.name}`}
-        </h5>
+        <h5 className={Styles.characterName}>{`as ${actorInfo.character.name}`}</h5>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default ActorCard;

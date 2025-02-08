@@ -4,13 +4,13 @@ import Styles from "./Results.module.scss";
 import { TShow } from "../../../../common/types";
 
 type TSearchResult = {
-  score: number,
-  show: TShow,
+  score: number;
+  show: TShow;
 };
 
 const Results = () => {
   const { data: searchResults = [] } = useQuery<TSearchResult[]>({
-    queryKey: ['searchResults'],
+    queryKey: ["searchResults"],
     queryFn: async () => {
       return [];
     },
@@ -20,11 +20,11 @@ const Results = () => {
 
   return (
     <div className={Styles.results}>
-      {searchResults.length > 0 ? (
-        searchResults.map((resultItem: TSearchResult) => (
-          <SerieCard key={resultItem.show.id} showInfo={resultItem.show} />
-        ))
-      ) : null}
+      {searchResults.length > 0
+        ? searchResults.map((resultItem: TSearchResult) => (
+            <SerieCard key={resultItem.show.id} showInfo={resultItem.show} />
+          ))
+        : null}
     </div>
   );
 };
