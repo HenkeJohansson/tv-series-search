@@ -12,14 +12,11 @@ const SerieCard = ({ showInfo }: TSerieCard) => {
   const navigate = useNavigate();
 
   return (
-    <div
-      className={Styles.serieCard}
-      onClick={() => navigate(`/details/${showInfo.id}`)}
-    >
+    <li className={Styles.serieCard} onClick={() => navigate(`/details/${showInfo.id}`)}>
       <img src={showInfo.image?.medium || fallbackPoster} />
       <h3>{showInfo.name}</h3>
       <Rating rating={showInfo.rating.average} />
-    </div>
+    </li>
   );
 };
 

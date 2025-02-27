@@ -19,13 +19,11 @@ const Results = () => {
   });
 
   return (
-    <div className={Styles.results}>
+    <ul className={Styles.results}>
       {searchResults.length > 0
-        ? searchResults.map((resultItem: TSearchResult) => (
-            <SerieCard key={resultItem.show.id} showInfo={resultItem.show} />
-          ))
+        ? searchResults.map((resultItem: TSearchResult) => <SerieCard key={resultItem.show.id} showInfo={resultItem.show} />)
         : null}
-    </div>
+    </ul>
   );
 };
 

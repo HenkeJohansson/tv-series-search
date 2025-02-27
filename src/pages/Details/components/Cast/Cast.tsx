@@ -19,12 +19,12 @@ const Cast = ({ castData }: TCast) => {
   return (
     <>
       <h2 className={Styles.heading}>Cast</h2>
-      <div className={Styles.cast}>
+      <ul className={Styles.cast}>
         {castData.length === 0 && <p>No cast information available.</p>}
-        {castData.map((actor: any) => (
-          <ActorCard key={actor.person.id} actorInfo={actor} />
+        {castData.map((actor: any, idx: number) => (
+          <ActorCard key={`${actor.person.id}_${idx}`} actorInfo={actor} />
         ))}
-      </div>
+      </ul>
     </>
   );
 };

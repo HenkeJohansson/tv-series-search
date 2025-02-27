@@ -38,7 +38,7 @@ const Details = () => {
   const castData = results[1].data ?? [];
 
   return (
-    <div>
+    <main>
       <BreadCrumbs backLink="/" />
       {detailsData && (
         <div className={Styles.showDetails}>
@@ -47,7 +47,7 @@ const Details = () => {
         </div>
       )}
       <Cast castData={castData} />
-    </div>
+    </main>
   );
 };
 

@@ -16,13 +16,13 @@ type TCastCard = {
 
 const ActorCard = ({ actorInfo }: TCastCard) => {
   return (
-    <div className={Styles.actorCard}>
+    <li className={Styles.actorCard}>
       <img src={actorInfo.person.image.medium} alt={actorInfo.person.name} />
       <div className={Styles.actorInfo}>
         <h4 className={Styles.realName}>{actorInfo.person.name}</h4>
         <h5 className={Styles.characterName}>{`as ${actorInfo.character.name}`}</h5>
       </div>
-    </div>
+    </li>
   );
 };
 

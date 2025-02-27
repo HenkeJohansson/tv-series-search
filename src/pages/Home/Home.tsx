@@ -2,9 +2,9 @@ import Results from "./components/Results/Results";
 
 const Home = () => {
   return (
-    <div>
+    <main>
       <Results />
-    </div>
+    </main>
   );
 };
 
